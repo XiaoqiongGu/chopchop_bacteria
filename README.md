@@ -1,7 +1,9 @@
-# guideRNA design for bacteria using chopchop
+# GuideRNA design using CHOPCHOP for Bacteria
 
+Welcome! This guide helps you use CHOPCHOP's command line tools for designing guideRNAs for bacteria. It's perfect for big projects where you have lots of genes (like around 3000) and need to design guideRNAs for all of them.
 
-This repository documents the process of utilizing the command-line version of CHOPCHOP for microbial guideRNA design, aimed at facilitating batch processing (e.g., if you have ~3000 genes and wants to get the guideRNA design) and dataset generation.  I found the instructions on bitbucket is harder to follow, in both installation and usage side. The usage manual is more meant for the human genome, but did not find too much information on microbial datasets. so I decided to record all the process.
+I noticed that the instructions over at Bitbucket were a bit tricky to follow, especially for installing the software and figuring out how to use it for bacteria, not just human genes. Consequently, this lack of detailed guidance for microbial datasets prompted the creation of this repository, aiming to document the entire process comprehensively.
+
 
 ## Installation
 
@@ -15,7 +17,7 @@ This repository documents the process of utilizing the command-line version of C
 
 Please go to this [website](https://chopchop.cbu.uib.no/genomes/) to download the bowtie formatted bacteria, as indicated by instuctions. 
 
-#### Edit the config.jason File
+### Edit the config.jason File
 
 The config.json file's directories have been edited to point to the correct folders and was renamed to config_local.json as instructed by the chopchop readme. They were changed as follows:
 ```
@@ -35,7 +37,7 @@ The config.json file's directories have been edited to point to the correct fold
 }
 ```
 
-#### Generating the Gene Feature Table
+### Generating the Gene Feature Table
 - Unlike other organisms, acquiring the Gene Feature Table for microbial genomes requires direct download of the GTF format from the NCBI website, as the links provided on the official website are not applicable for bacteria. For example, using the NCBI accession ID NC_017316:
 
 GTF download link: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000172575.2/
