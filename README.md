@@ -2,14 +2,14 @@
 
 Welcome! This guide helps you use CHOPCHOP's command line tools for designing guideRNAs for bacteria. It's perfect for big projects where you have lots of genes (like around 2500) and need to design guideRNAs for all of them.
 
-I noticed that the instructions over at Bitbucket were a bit tricky to follow, especially for installing the software and figuring out how to use it for bacteria, not just human genes. Consequently, this lack of detailed guidance for microbial datasets prompted the creation of this repository, aiming to document the entire process comprehensively.
+I noticed that the instructions over at Bitbucket were a bit tricky to follow, especially for installing the software and figuring out how to use it for bacteria, not just human genes. Consequently, this lack of detailed guidance for microbial datasets prompted the creation of this repository, aiming to document the entire process comprehensively. Here we are using bacteria Efaecalis_OG1RF as the example. 
 
 
 ## Installation
 
 - First install the software, I created a environment yml file, The installation process is based on instructions available at the [CHOPCHOP Bitbucket repository](https://bitbucket.org/valenlab/chopchop/src/master/). 
 	
-	`conda env create -f environment.yml`
+	`conda env create -f env.yml`
 
 ## Preparing the Required Files
 
