@@ -2,12 +2,12 @@
 
 Welcome! This guide helps you use CHOPCHOP's command line tools for designing guideRNAs for bacteria. It's perfect for big projects where you have lots of genes (like around 2500) and need to design guideRNAs for all of them.
 
-I noticed that the instructions over at Bitbucket were a bit tricky to follow, especially for installing the software and figuring out how to use it for bacteria, not just human genes. Consequently, this lack of detailed guidance for microbial datasets prompted the creation of this repository, aiming to document the entire process comprehensively. Here we are using bacteria Efaecalis_OG1RF as the example. 
+I noticed that the instructions over at Bitbucket were a bit tricky to follow, especially for installing the software and figuring out how to use it for bacteria, not just human genes. Consequently, this lack of detailed guidance for microbial datasets prompted the creation of this repository, aiming to document the entire process comprehensively. Here we are using bacteria Efaecalis_OG1RF (NC_017316) as the example. 
 
 
 ## Installation
 
-- First install the software, I created a environment yml file, The installation process is based on instructions available at the [CHOPCHOP Bitbucket repository](https://bitbucket.org/valenlab/chopchop/src/master/). 
+First install the software, I created a environment yml file. The installation process is based on instructions available at the [CHOPCHOP Bitbucket repository](https://bitbucket.org/valenlab/chopchop/src/master/). 
 	
 	`conda env create -f env.yml`
 
@@ -38,10 +38,10 @@ The config.json file's directories have been edited to point to the correct fold
 ```
 
 ### Generating the Gene Feature Table
-- Unlike other organisms, acquiring the Gene Feature Table for microbial genomes requires direct download of the GTF format from the NCBI website, as the links provided on the official website are not applicable for bacteria. For example, using the NCBI accession ID NC_017316:
+Unlike other organisms, acquiring the Gene Feature Table for microbial genomes requires direct download of the GTF format from the NCBI website, as the links provided on the official website are not applicable for bacteria. For example, using the NCBI accession ID NC_017316:
 
-GTF download link: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000172575.2/
-Accession ID link: https://www.ncbi.nlm.nih.gov/nuccore/NC_017316
+  - GTF download link: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000172575.2/
+  - Accession ID link: https://www.ncbi.nlm.nih.gov/nuccore/NC_017316
 
 So below is the codes for converting gtf format (Genebank version) to genePred Table
 
@@ -51,7 +51,7 @@ awk 'BEGIN { FS = OFS = "\t" } { gsub(/\.[^.]*$/, "", $1) }1' gene.genePred > ge
 echo -e "name\tchrom\tstrand\ttxStart\ttxEnd\tcdsStart\tcdsEnd\texonCount\texonStarts\texonEnds\tscore\tname2\tcdsStartStat\tcdsEndStat\texonFrames" | cat - gene1.genePred > gene.v1.genePred
 
 ```
-Finally move your `gene Pred table` into the same folder as bowtie indexed and 2bit formatted folder. 
+Finally move your `gene feature table` into the same folder as bowtie indexed and 2bit formatted folder. 
 
 
 ## Running the Chopchop for a list of Genes in Bacteria Efaecalis_OG1RF
